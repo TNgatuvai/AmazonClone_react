@@ -2,17 +2,28 @@ import React from 'react';
 import './App.css';
 import Header from './Header';
 import Home from './Home';
-import Product from './Product';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
     // BEM
-    <div className="App">
-      
-        <Header />
-        <Home />
-      
-    </div>
+    <Router>
+      <div className="App">
+        
+        <Switch>
+          <Route path="/checkout">
+            <Header />
+            <h1>Okay!!!</h1>
+          </Route>
+
+          <Route path="/"> /* make sure to have the default route at the bottom */ 
+            <Header />
+            <Home />
+          </Route>
+        </Switch>
+        
+      </div>
+    </Router>
   );
 }
 
